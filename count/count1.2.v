@@ -27,8 +27,11 @@ always  @(posedge clk or negedge rst_n)begin
      end
  end
  
- assign(add_cnt) = dout<=0;
- assign(end_cnt) = add_cnt && cnt=5-1;
+// assign(add_cnt) = dout<=0;
+// assign(end_cnt) = add_cnt && cnt=5-1;
+
+ assign add_cnt = dout==0;//<= 是赋值语句 不能用于条件判断
+ assign end_cnt = add_cnt && cnt==5-1;// = 也是赋值符号，应该用==
 
  always  @(posedge clk or negedge rst_n)begin
      if(rst_n==1'b0)begin
