@@ -33,7 +33,9 @@ always  @(posedge clk or negedge rst_n)begin
  end
 
  assign add_cnt = dout==0;
- assign end_cnt = add_cnt && (flag <= 1 && cnt=5-1 || flag <= 0 && cnt=7-1);
+ //assign end_cnt = add_cnt && (flag <= 1 && cnt=5-1 || flag <= 0 && cnt=7-1);
+ //原因参考count1.2.v
+ assign end_cnt = add_cnt && (flag == 1 && cnt==5-1 || flag == 0 && cnt==7-1);
 
  always  @(posedge clk or negedge rst_n)begin
      if(rst_n==1'b0)begin

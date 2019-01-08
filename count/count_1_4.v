@@ -44,7 +44,7 @@ always  @(posedge clk or negedge rst_n)begin
         flag <= 1'b0;
     end
 end
-
+/*
 always  @(posedge clk or negedge rst_n)begin
     if(rst_n==1'b0)begin
         dout <= 1'b0;
@@ -53,6 +53,19 @@ always  @(posedge clk or negedge rst_n)begin
         dout <= 1'b1;
     end
     else if(end_cnt) begin
+        dout <= 1'b0;
+    end
+end
+*/
+//注意是间隔10个周期后才会产生dout
+always  @(posedge clk or negedge rst_n)begin
+    if(rst_n==1'b0)begin
+        dout <= 1'b0;
+    end
+    else if(end_cnt) begin
+        dout <= 1'b1;
+    end
+    else begin
         dout <= 1'b0;
     end
 end
