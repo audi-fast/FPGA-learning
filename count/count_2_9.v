@@ -10,7 +10,7 @@ input rst_n;
 input en;
 output [1:0] dout;
 
-reg cnt0;
+reg [1:0] cnt0;
 reg [1:0] cnt1;
 wire add_cnt0;
 wire end_cnt0;
