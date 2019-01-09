@@ -10,7 +10,7 @@ input rst_n;
 input en;
 output [1:0] dout;
 
-reg [1:0] cnt0;
+reg [2:0] cnt0;
 reg [1:0] cnt1;
 wire add_cnt0;
 wire end_cnt0;
@@ -32,7 +32,7 @@ always  @(posedge clk or negedge rst_n)begin
 end
 
 assign add_cnt0 = flag==1;
-assign end_cnt0 = add_cnt0 && cnt0==2-1;
+assign end_cnt0 = add_cnt0 && cnt0==6-1;
 
 always  @(posedge clk or negedge rst_n)begin
 	if(rst_n==1'b0)begin
